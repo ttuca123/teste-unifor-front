@@ -1,13 +1,22 @@
 import { Component } from '@angular/core';
-import { AppModule } from '../app.module';
+
 
 @Component({
-  selector: 'app-aluno',
-  standalone: true,
-  imports: [],
+  selector: 'app-aluno',  
   template: `
-    TESTE
-   
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">            
+              <a href="alunos/listar"  class="navbar-brand">Consultar Aluno</a>
+          </div>
+          <div class="navbar-header">            
+              <a href="alunos/cadastrar"  class="navbar-brand">Cadastrar Aluno</a>
+          </div>
+          <div class="navbar-header">            
+              <a href="/" class="navbar-brand">Voltar</a>
+          </div>
+      </div>
+  </nav>
   `,
   styles: ``
   

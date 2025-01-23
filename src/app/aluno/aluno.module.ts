@@ -6,8 +6,7 @@ import { RouterModule } from "@angular/router";
 import { AlunoRoutingModule } from "./aluno.routing";
 
 @NgModule({
-  declarations: [
-      
+  declarations: [      
   ],
   imports: [    
     CommonModule,    

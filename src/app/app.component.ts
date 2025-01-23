@@ -3,39 +3,15 @@ import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/ro
 import { AlunoModule } from './aluno/aluno.module';
 import { AlunoComponent } from './aluno/aluno.component';
 import { filter, map, mergeMap } from 'rxjs';
+import { HeaderComponent } from './header/header/header.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: false,  
-  templateUrl: './app.component.html'
-  ,
+  selector: 'app-root',  
+  standalone: true,
+  imports: [RouterModule],
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'teste unifor';
-
-
-  constructor(    
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-    ) {}
-   
-
-ngOnInit() {
-    
-
-    
-    this.router.events.pipe(
-      filter((event) => event instanceof NavigationEnd),
-      map(() => this.activatedRoute),
-      map((route) => {
-        while (route.firstChild) route = route.firstChild;
-        return route;
-      }),
-      filter((route) => route.outlet === 'primary'),
-      mergeMap((route) => route.data)
-     );
-     
-  }
-
 }
