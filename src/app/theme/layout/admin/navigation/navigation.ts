@@ -17,7 +17,7 @@ export interface NavigationItem {
 export const NavigationItems: NavigationItem[] = [
   {
     id: 'navigation',
-    title: 'Navigation',
+    title: 'Menu',
     type: 'group',
     icon: 'icon-navigation',
     children: [

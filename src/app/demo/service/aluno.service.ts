@@ -13,7 +13,14 @@ export class AlunoService {
 
   public listarTodosAlunos():Observable<any>{
 
-    return this.http.get('http://localhost:8080/alunos');
+    return this.http.get(`http://localhost:8080/alunos`);
+
+  }
+
+
+  public cadastrarAluno(vo):Observable<any>{
+
+    return this.http.post('http://localhost:8080/alunos', vo);
 
   }
 }
