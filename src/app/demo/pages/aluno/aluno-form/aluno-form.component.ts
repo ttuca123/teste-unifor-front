@@ -59,7 +59,13 @@ export class AlunoFormComponent implements OnInit, OnDestroy {
   
   enviar() {
 
-    if(this.aluno.matricula!=null){
+    if(this.aluno.matricula==null){
+      this.alunoService.salvar(this.aluno)
+      .subscribe({
+        next: () => alert(`aluno ${this.aluno.nome} cadastrado com sucesso!!!`),
+        error: () => console.error()
+      })
+    }else{
       console.log(`enviado ${this.aluno.matricula}`);
 
       this.alunoService.editar(this.aluno, this.aluno.matricula)

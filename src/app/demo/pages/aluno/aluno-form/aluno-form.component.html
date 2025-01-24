@@ -5,7 +5,7 @@
       <hr />
         <form #alunoForm="ngForm" fxLayout="column" fxLayoutAlign="start stretch"
                       (ngSubmit)="enviar()">
-          <div class="form-group">
+            <div class="form-group" *ngIf="aluno.matricula!=null">
               <label for="exampleDataList" class="form-label">Matricula {{aluno.matricula}}</label>
               <input class="form-control" [(ngModel)]="aluno.matricula" readonly list="datalistOptions" id="matricula" name="matricula" placeholder="Digite o nome" maxlength="60"/>
             </div>

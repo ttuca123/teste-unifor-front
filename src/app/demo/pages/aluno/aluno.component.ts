@@ -47,6 +47,12 @@ export class AlunoComponent implements OnInit, OnDestroy{
     }); 
   }  
 
+
+  cadastrar() {
+
+     this.route.navigate(["/alunos/cadastro"]);
+  }
+
   ngOnDestroy(): void {
     
     if(this.subscription!=null){

@@ -3,7 +3,8 @@
 </p>
 
  <div  class="container" > 
-        <div class="row justify-content-md-center" >     
+        <button class="btn btn-primary" type="button" style="max-width: 100px; max-height: 50px;" (click)="cadastrar()">Cadastrar</button>   
+        <div class="row justify-content-md-center" >  
              @for (aluno of alunos; track aluno) {
                 <div class=" col-xl-4" >
                 <app-card>
