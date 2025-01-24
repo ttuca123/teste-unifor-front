@@ -1,40 +1,16 @@
-/*
- *  Protractor support is deprecated in Angular.
- *  Protractor is used in this example for compatibility with Angular documentation tools.
- */
-import {bootstrapApplication, provideProtractorTestingSupport} from '@angular/platform-browser';
-import {AppComponent} from './app/app.component';
-import { provideRouter, Routes } from '@angular/router';
-import { AlunoComponent } from './app/aluno/aluno.component';
-import { HeaderComponent } from './app/header/header/header.component';
-import { AlunoListComponent } from './app/aluno/aluno-list/aluno-list.component';
-import { AlunoFormComponent } from './app/aluno/aluno-form/aluno-form.component';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 
-const routes: Routes = [
-  {
-          path: '',
-          component: HeaderComponent,        
-    },  
-    {
-          path: 'alunos',
-          component: AlunoComponent,                        
-    },
-    {
-          path: 'alunos/listar',
-          component: AlunoListComponent   
-    },
-     {
-          path: 'alunos/cadastrar',
-          component: AlunoFormComponent
-    }
-    
+import { environment } from './environments/environment';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
+import { AppRoutingModule } from './app/app-routing.module';
+import { AppComponent } from './app/app.component';
 
-]
+if (environment.production) {
+  enableProdMode();
+}
 
-bootstrapApplication(AppComponent,    
-  {
-    providers: [
-      provideRouter(routes)
-    ]    
-});
+bootstrapApplication(AppComponent, {
+  providers: [importProvidersFrom(BrowserModule, AppRoutingModule), provideAnimations()]
+}).catch((err) => console.error(err));

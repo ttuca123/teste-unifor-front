@@ -1,0 +1,24 @@
+<p>   
+    Lista de Alunos
+</p>
+
+ <div  class="container" > 
+        <div class="row justify-content-md-center" >     
+             @for (aluno of alunos; track aluno) {
+                <div class=" col-xl-4">
+                <app-card >
+                    <h6 class="mb-4">{{ aluno.matricula }} </h6>
+                    <div class="row d-flex align-items-center">
+                    <div class="col-9">
+                        <h3 class="f-w-300 d-flex align-items-center m-b-0">
+                            {{ aluno.nome }}
+                        </h3>
+                    </div>                    
+                    </div>
+                    <div class="m-t-30">                    
+                    </div>
+                </app-card>
+                </div>
+            }
+        </div>             
+      </div>     
