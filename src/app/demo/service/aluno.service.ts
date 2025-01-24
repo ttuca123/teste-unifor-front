@@ -16,18 +16,23 @@ export class AlunoService {
     return this.http.get(`${this.endpoint}/v1/alunos`);
   }
 
-  public cadastrarAluno(vo):Observable<any>{
+  public detalharAluno(id):Observable<any>{
 
-    return this.http.post(`${this.endpoint}/alunos/`, vo);
+    return this.http.get(`${this.endpoint}/v1/alunos/${id}`);
   }
 
-  public editarAluno(vo, id):Observable<any> {
+  public salvar(vo):Observable<any>{
 
-    return this.http.put(`${this.endpoint}/alunos/${id}`, vo);
+    return this.http.post(`${this.endpoint}/v1/alunos/`, vo);
+  }
+
+  public editar(vo, id):Observable<any> {
+
+    return this.http.put(`${this.endpoint}/v1/alunos/${id}`, vo);
   }
 
   public remover(id):Observable<any> {
 
-    return this.http.delete(`${this.endpoint}/alunos/${id}`);
+    return this.http.delete(`${this.endpoint}/v1/alunos/${id}`);
   }
 }

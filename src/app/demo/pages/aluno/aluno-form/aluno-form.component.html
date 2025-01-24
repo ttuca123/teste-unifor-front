@@ -3,21 +3,29 @@
     <app-card cardTitle="Basic Component" >
       <h5>Cadastro Aluno</h5>
       <hr />
-       <form action="">
+        <form #alunoForm="ngForm" fxLayout="column" fxLayoutAlign="start stretch"
+                      (ngSubmit)="enviar()">
           <div class="form-group">
-            <label for="exampleDataList" class="form-label">Nome</label>
-            <input class="form-control" list="datalistOptions" id="nome" placeholder="Digite o nome" maxlength="60"/>
-          </div>
-          <div class="form-group">
-            <label for="exampleDataList" class="form-label">Cpf</label>
-            <input class="form-control" list="datalistOptions" id="cpf" placeholder="Digite o cpf" maxlength="14"/>
-          </div>
-          <div class="form-group">
-            <label for="exampleDataList" class="form-label">Telefone</label>
-            <input class="form-control" type="tel" list="datalistOptions" id="cpf" placeholder="Digite o número..." />
-          </div>
-        </form>
-      
+              <label for="exampleDataList" class="form-label">Matricula {{aluno.matricula}}</label>
+              <input class="form-control" [(ngModel)]="aluno.matricula" readonly list="datalistOptions" id="matricula" name="matricula" placeholder="Digite o nome" maxlength="60"/>
+            </div>
+            <div class="form-group">
+              <label for="exampleDataList" class="form-label">Nome</label>
+            <input class="form-control" [(ngModel)]="aluno.nome" list="datalistOptions" id="nome" name="nome" placeholder="Digite o nome" maxlength="60"/>            
+            </div>
+            <div class="form-group">
+              <label for="exampleDataList" class="form-label">Cpf</label>
+              <input class="form-control" [(ngModel)]="aluno.cpf" list="datalistOptions" id="cpf" name="cpf" placeholder="Digite o cpf" maxlength="14"/>
+            </div>
+            <div class="form-group">
+              <label for="exampleDataList" class="form-label">Telefone</label>
+              <input class="form-control" [(ngModel)]="aluno.fone" type="tel" list="datalistOptions" id="fone" name="fone" placeholder="Digite o número..." />
+            </div>
+
+            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-secondary" type="button" (click)="voltar()">Voltar</button>
+          </form>
     </app-card>
+
   </div>
 </div>
