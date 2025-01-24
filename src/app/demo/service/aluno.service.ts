@@ -18,9 +18,9 @@ export class AlunoService {
   }
 
 
-  public cadastrarAluno(vo):Observable<any>{
+  public cadastrarAluno(vo, id):Observable<any>{
 
-    return this.http.post('http://localhost:8080/alunos', vo);
+    return this.http.post(`http://localhost:8080/alunos/${id}`, vo);
 
   }
 }
