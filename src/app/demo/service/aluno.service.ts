@@ -31,7 +31,7 @@ export class AlunoService {
     return this.http.put(`${this.endpoint}/v1/alunos/${id}`, vo);
   }
 
-  public remover(id):Observable<any> {
+  public excluir(id):Observable<any> {
 
     return this.http.delete(`${this.endpoint}/v1/alunos/${id}`);
   }

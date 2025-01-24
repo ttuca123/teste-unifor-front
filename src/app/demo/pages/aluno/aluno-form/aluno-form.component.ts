@@ -19,7 +19,8 @@ export class AlunoFormComponent implements OnInit, OnDestroy {
     cpf: '',
     fone: ''
   }
-  
+
+  method= '';
   subscription: Subscription;
   
   
@@ -33,6 +34,7 @@ export class AlunoFormComponent implements OnInit, OnDestroy {
     .subscribe({
       next: (param) => {
         const id = param['matricula']        
+        this.method = param['method'];        
         this.carregarDados(id);
       },      
       error(err) {
@@ -56,25 +58,39 @@ export class AlunoFormComponent implements OnInit, OnDestroy {
     })
     
   }
+
+  salvar () {
+    this.alunoService.salvar(this.aluno)
+    .subscribe({
+      next: () => alert(`aluno ${this.aluno.nome} cadastrado com sucesso!!!`),
+      error: () => console.error()
+    })
+  }
+
+  editar() {
+    this.alunoService.editar(this.aluno, this.aluno.matricula)
+    .subscribe({
+      next: () => alert(`aluno ${this.aluno.nome} editado com sucesso!!!`),
+      error: () => console.error()
+    })
+  }
   
   enviar() {
 
     if(this.aluno.matricula==null){
-      this.alunoService.salvar(this.aluno)
-      .subscribe({
-        next: () => alert(`aluno ${this.aluno.nome} cadastrado com sucesso!!!`),
-        error: () => console.error()
-      })
+      this.salvar();
     }else{
-      console.log(`enviado ${this.aluno.matricula}`);
-
-      this.alunoService.editar(this.aluno, this.aluno.matricula)
-      .subscribe({
-        next: () => alert(`aluno ${this.aluno.nome} editado com sucesso!!!`),
-        error: () => console.error()
-      })
-      
+      this.editar();
     }
+  }
+
+  excluir() {
+    this.alunoService.excluir(this.aluno.matricula)
+    .subscribe({
+      next: () => alert(`aluno ${this.aluno.nome} foi excluido com sucesso`),
+      error: () => console.error()
+    })
+
   }
 
  voltar() {

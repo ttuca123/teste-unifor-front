@@ -25,9 +25,16 @@ export class AlunoComponent implements OnInit, OnDestroy{
 
   }
 
-  detalharAluno(aluno) {
-    this.route.navigate([`/alunos/cadastro/${aluno.matricula}`]);
+  
 
+  detalhar(aluno) {
+    this.route.navigate([`/alunos/cadastro/${aluno.matricula}`]);
+  }
+
+  excluir(aluno) {
+    this.route.navigate([`/alunos/cadastro/${aluno.matricula}`, {
+      method: 'excluir'
+    }]);
   }
 
 

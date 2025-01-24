@@ -21,9 +21,13 @@
               <label for="exampleDataList" class="form-label">Telefone</label>
               <input class="form-control" [(ngModel)]="aluno.fone" type="tel" list="datalistOptions" id="fone" name="fone" placeholder="Digite o número..." />
             </div>
-
-            <button class="btn btn-primary" type="submit">Enviar</button>
-            <button class="btn btn-secondary" type="button" (click)="voltar()">Voltar</button>
+            <div *ngIf="method!='excluir'; else alternativa">
+              <button class="btn btn-primary" type="submit">Enviar</button>              
+            </div>
+            <ng-template #alternativa>
+              <button class="btn btn-danger" type="button" (click)="excluir()">Excluir</button>
+            </ng-template>
+            <button class="btn btn-secondary" type="button" (click)="voltar()">Voltar</button>          
           </form>
     </app-card>
 
