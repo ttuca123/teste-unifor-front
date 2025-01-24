@@ -7,26 +7,27 @@ import { Observable } from 'rxjs';
 })
 export class AlunoService {
 
+  endpoint = 'http://localhost:8080';
+
   constructor(private http: HttpClient) { }
-
-
 
   public listarTodosAlunos():Observable<any>{
 
-    return this.http.get(`http://localhost:8080/alunos`);
-
+    return this.http.get(`${this.endpoint}/v1/alunos`);
   }
-
 
   public cadastrarAluno(vo):Observable<any>{
 
-    return this.http.post(`http://localhost:8080/alunos/`, vo);
-
+    return this.http.post(`${this.endpoint}/alunos/`, vo);
   }
-
 
   public editarAluno(vo, id):Observable<any> {
 
-    return this.http.put(`http://localhost:8080/alunos/${id}`, vo);
+    return this.http.put(`${this.endpoint}/alunos/${id}`, vo);
+  }
+
+  public remover(id):Observable<any> {
+
+    return this.http.delete(`${this.endpoint}/alunos/${id}`);
   }
 }

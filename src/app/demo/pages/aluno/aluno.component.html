@@ -5,8 +5,8 @@
  <div  class="container" > 
         <div class="row justify-content-md-center" >     
              @for (aluno of alunos; track aluno) {
-                <div class=" col-xl-4">
-                <app-card >
+                <div class=" col-xl-4" >
+                <app-card>
                     <h6 class="mb-4">{{ aluno.matricula }} </h6>
                     <div class="row d-flex align-items-center">
                     <div class="col-9">
@@ -15,7 +15,10 @@
                         </h3>
                     </div>                    
                     </div>
-                    <div class="m-t-30">                    
+                    <div class="m-t-30">     
+                        <button class="app-card"   (click)="detalharAluno(aluno)" >
+                            detalhar
+                        </button>
                     </div>
                 </app-card>
                 </div>

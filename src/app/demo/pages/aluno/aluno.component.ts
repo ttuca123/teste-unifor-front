@@ -3,6 +3,7 @@ import { AlunoService } from '../../service/aluno.service';
 import { Subscribable, Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aluno',
@@ -15,7 +16,7 @@ export class AlunoComponent implements OnInit, OnDestroy{
   subscription: Subscription;
   alunos:any[] = [];
 
-  constructor(private alunoService: AlunoService){
+  constructor(private alunoService: AlunoService,  public route: Router){
     
   }
   
@@ -23,6 +24,12 @@ export class AlunoComponent implements OnInit, OnDestroy{
     this.buscarTodosAlunos();       
 
   }
+
+  detalharAluno(aluno) {
+    this.route.navigate([`/alunos/cadastro/${aluno.matricula}`]);
+
+  }
+
 
   buscarTodosAlunos() {     
    

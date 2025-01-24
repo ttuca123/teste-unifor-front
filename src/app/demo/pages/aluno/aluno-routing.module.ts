@@ -12,6 +12,11 @@ const routes: Routes = [
       path: 'cadastro',
       component: AlunoFormComponent
   },
+  {
+      path: 'cadastro/:matricula',
+      component: AlunoFormComponent
+  }
+
 ];
 
 @NgModule({
