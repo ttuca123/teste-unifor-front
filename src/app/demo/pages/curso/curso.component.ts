@@ -27,12 +27,12 @@ export class CursoComponent implements OnInit, OnDestroy {
 
   
 
-  detalhar(aluno) {
-    this.route.navigate([`/cursos/cadastro/${aluno.matricula}`]);
+  detalhar(curso) {
+    this.route.navigate([`/cursos/cadastro/${curso.id}`]);
   }
 
-  excluir(aluno) {
-    this.route.navigate([`/cursos/cadastro/${aluno.matricula}`, {
+  excluir(curso) {
+    this.route.navigate([`/cursos/cadastro/${curso.id}`, {
       method: 'excluir'
     }]);
   }

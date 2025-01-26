@@ -6,7 +6,7 @@
         <form #professorForm="ngForm" fxLayout="column" fxLayoutAlign="start stretch"
                       (ngSubmit)="enviar()">
             <div class="form-group" *ngIf="professor.id!=null">
-              <label for="exampleDataList" class="form-label">Id {{professor.id}}</label>
+              <label for="exampleDataList" class="form-label">Id </label>
               <input class="form-control" [(ngModel)]="professor.id" readonly list="datalistOptions" />
             </div>
             <div class="form-group">

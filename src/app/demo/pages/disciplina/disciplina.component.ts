@@ -17,7 +17,7 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
 export class DisciplinaComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
-  cursos:any[] = [];
+  disciplinas:any[] = [];
 
   constructor(private disciplinaService: DisciplinaService,  public route: Router){
     
@@ -25,35 +25,32 @@ export class DisciplinaComponent implements OnInit, OnDestroy {
   
   ngOnInit(): void {
     this.buscarTodos();       
-
   }
 
-  
-
-  detalhar(aluno) {
-    this.route.navigate([`/disciplinas/cadastro/${aluno.matricula}`]);
+  detalhar(disciplina) {
+    this.route.navigate([`/disciplinas/cadastro/${disciplina.id}`]);
   }
 
-  excluir(aluno) {
-    this.route.navigate([`/disciplinas/cadastro/${aluno.matricula}`, {
+  excluir(disciplina) {
+    this.route.navigate([`/disciplinas/cadastro/${disciplina.id}`, {
       method: 'excluir'
     }]);
   }
 
 
-  //Busca todos os cursos
+  //Busca todas as disciplinas
   buscarTodos() {     
    
-  this.subscription = this.disciplinaService.listarTodos()
-    .subscribe({
-      next: (dados) => {
-        this.cursos= (dados);
+    this.subscription = this.disciplinaService.listarTodos()
+      .subscribe({
+        next: (dados) => {
+          this.disciplinas= (dados);
 
-      },
-       error: (err) => {
-        console.error(err);        
-      }
-    }); 
+        },
+        error: (err) => {
+          console.error(err);        
+        }
+      }); 
   }  
 
 
