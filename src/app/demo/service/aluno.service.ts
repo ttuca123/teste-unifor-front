@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AlunoService {
 
-  endpoint = 'http://localhost:8080';
+  endpoint = 'http://localhost:8180';
 
   constructor(private http: HttpClient) { }
 

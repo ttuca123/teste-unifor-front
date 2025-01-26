@@ -237,42 +237,24 @@ export class DashboardComponent implements OnInit {
   // public method
   sales = [
     {
-      title: 'Visão Administrador',
+      title: 'Total Alunos Matriculados',
       icon: 'icon-arrow-up text-c-green',
-      amount: '',
+      amount: '1',
       percentage: '',
       progress: 0,
       design: 'col-md-6',
       progress_bg: 'progress-c-theme'
     },
     {
-      title: 'Visão Coordenador',
+      title: 'Total de Cursos',
       icon: 'icon-arrow-up text-c-green',
-      amount: '',
+      amount: '1',
       percentage: '',
       progress: 0,
       design: 'col-md-6',
       progress_bg: 'progress-c-theme2'
-    },
-    {
-      title: 'Visão Professor',
-      icon: 'icon-arrow-up text-c-green',
-      amount: '',
-      percentage: '',
-      progress: 0,
-      design: 'col-md-12',
-      progress_bg: 'progress-c-theme'
-    },
-    {
-      title: 'Visão Aluno',
-      icon: 'icon-arrow-up text-c-green',
-      amount: 'alunos',
-      percentage: '',
-      progress: 0,
-      design: 'col-md-12',
-      progress_bg: 'progress-c-theme'
     }
-
+    
   ];
 
   card = [

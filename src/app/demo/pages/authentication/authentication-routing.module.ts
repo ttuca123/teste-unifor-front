@@ -6,11 +6,11 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: 'signin',
+        path: 'login',
         loadComponent: () => import('./auth-signin/auth-signin.component')
       },
       {
-        path: 'signup',
+        path: 'cadastro',
         loadComponent: () => import('./auth-signup/auth-signup.component')
       }
     ]

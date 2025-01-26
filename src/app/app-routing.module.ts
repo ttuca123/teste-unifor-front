@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { GuestComponent } from './theme/layout/guest/guest.component';
 import { provideHttpClient } from '@angular/common/http';
+import AuthSigninComponent from './demo/pages/authentication/auth-signin/auth-signin.component';
+import { AuthGuardService } from './demo/service/auth-guard.service';
 
-const routes: Routes = [
+const routes: Routes = [  
   {
     path: '',
-    component: AdminComponent,
-    children: [
+    component: AdminComponent,    
+    children: [    
       {
         path: '',
         redirectTo: 'dashboard',
@@ -41,9 +43,14 @@ const routes: Routes = [
        {
         path: 'alunos',
         loadChildren: () => import('./demo/pages/aluno/aluno.module').then((m) => m.AlunoModule)
+      },
+       {
+        path: 'professores',
+        loadChildren: () => import('./demo/pages/professor/professor.module').then((m) => m.ProfessorModule)
       }
+
     ]
-  },
+  },  
   {
     path: '',
     component: GuestComponent,
