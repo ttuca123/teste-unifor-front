@@ -95,7 +95,7 @@ export class ProfessorFormComponent implements OnInit, OnDestroy {
 
  voltar() {
 
-    this.route.navigate(["/alunos"]);
+    this.route.navigate(["/professores"]);
   }
   
   ngOnDestroy(): void {

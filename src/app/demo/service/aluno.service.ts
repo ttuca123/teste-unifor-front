@@ -11,7 +11,7 @@ export class AlunoService {
 
   constructor(private http: HttpClient) { }
 
-  public listarTodosAlunos():Observable<any>{
+  public listarTodos():Observable<any>{
 
     return this.http.get(`${this.endpoint}/v1/alunos`);
   }

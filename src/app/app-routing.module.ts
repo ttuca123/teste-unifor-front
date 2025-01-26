@@ -40,6 +40,10 @@ const routes: Routes = [
         path: 'sample-page',
         loadComponent: () => import('./demo/extra/sample-page/sample-page.component')
       },
+      {
+        path: 'usuarios',
+        loadChildren: () => import('./demo/pages/usuario/usuario.module').then((m) => m.UsuarioModule)
+      },
        {
         path: 'alunos',
         loadChildren: () => import('./demo/pages/aluno/aluno.module').then((m) => m.AlunoModule)
@@ -47,6 +51,14 @@ const routes: Routes = [
        {
         path: 'professores',
         loadChildren: () => import('./demo/pages/professor/professor.module').then((m) => m.ProfessorModule)
+      },
+      {
+        path: 'cursos',
+        loadChildren: () => import('./demo/pages/curso/curso.module').then((m) => m.CursoModule)
+      },
+      {
+        path: 'disciplinas',
+        loadChildren: () => import('./demo/pages/disciplina/disciplina.module').then((m) => m.DisciplinaModule)
       }
 
     ]

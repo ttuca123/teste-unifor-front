@@ -4,6 +4,7 @@ import { Subscribable, Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { Router } from '@angular/router';
+import { ProfessorService } from '../../service/professor.service';
 
 @Component({
   selector: 'app-professor',
@@ -16,40 +17,38 @@ export class ProfessorComponent implements OnInit, OnDestroy{
   subscription: Subscription;
   professores:any[] = [];
 
-  constructor(private professorService: AlunoService,  public route: Router){
+  constructor(private professorService: ProfessorService,  public route: Router){
     
   }
   
   ngOnInit(): void {
-    this.buscarTodosProfessores();       
+    this.buscarTodos();       
 
   }
 
   
 
-  detalhar(aluno) {
-    this.route.navigate([`/alunos/cadastro/${aluno.matricula}`]);
+  detalhar(professor) {
+    this.route.navigate([`/professores/cadastro/${professor.id}`]);
   }
 
-  excluir(aluno) {
-    this.route.navigate([`/alunos/cadastro/${aluno.matricula}`, {
+  excluir(professor) {
+    this.route.navigate([`/professores/cadastro/${professor.id}`, {
       method: 'excluir'
     }]);
   }
 
 
-  buscarTodosProfessores() {     
+  buscarTodos() {     
    
-  this.subscription = this.professorService.listarTodosAlunos()
+  this.subscription = this.professorService.listarTodos()
     .subscribe({
       next: (dados) => {
         this.professores= (dados);
 
       },
        error: (err) => {
-        console.error(err);
-        //this.error = 'Erro ao carregar os dados'; // Mostra a mensagem de erro
-        //this.loading = false; // Finaliza o carregamento
+        console.error(err);        
       }
     }); 
   }  
@@ -57,7 +56,7 @@ export class ProfessorComponent implements OnInit, OnDestroy{
 
   cadastrar() {
 
-     this.route.navigate(["/alunos/cadastro"]);
+     this.route.navigate(["/professores/cadastro"]);
   }
 
   ngOnDestroy(): void {
