@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DisciplinaFormComponent } from './disciplina-form/disciplina-form.component';
+import { DisciplinaComponent } from './disciplina.component';
 
 
 
 const routes: Routes = [
   {
     path: '',
-    component: DisciplinaFormComponent,
+    component: DisciplinaComponent,
   },
   {
       path: 'cadastro',

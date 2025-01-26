@@ -2,10 +2,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CursoService } from '../../service/curso.service';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 @Component({
   selector: 'app-curso',
-  imports: [],
+  imports: [CommonModule, SharedModule],
   templateUrl: './curso.component.html',
   styleUrl: './curso.component.scss'
 })
@@ -19,24 +21,24 @@ export class CursoComponent implements OnInit, OnDestroy {
   }
   
   ngOnInit(): void {
-    this.buscarTodosCursos();       
+    this.buscarTodos();       
 
   }
 
   
 
   detalhar(aluno) {
-    this.route.navigate([`/alunos/cadastro/${aluno.matricula}`]);
+    this.route.navigate([`/cursos/cadastro/${aluno.matricula}`]);
   }
 
   excluir(aluno) {
-    this.route.navigate([`/alunos/cadastro/${aluno.matricula}`, {
+    this.route.navigate([`/cursos/cadastro/${aluno.matricula}`, {
       method: 'excluir'
     }]);
   }
 
 
-  buscarTodosCursos() {     
+  buscarTodos() {     
    
   this.subscription = this.cursoService.listarTodos()
     .subscribe({

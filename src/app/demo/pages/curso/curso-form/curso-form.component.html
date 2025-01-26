@@ -1,1 +1,31 @@
-<p>curso-form works!</p>
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="Basic Component" >
+      <h5>Cadastro Curso</h5>
+      <hr />
+        <form #cursoForm="ngForm" fxLayout="column" fxLayoutAlign="start stretch"
+                      (ngSubmit)="enviar()">
+            <div class="form-group" *ngIf="curso.id!=null">
+              <label for="exampleDataList" class="form-label">Curso {{curso.id}}</label>
+              <input class="form-control" [(ngModel)]="curso.id" readonly list="datalistOptions" id="matricula" name="matricula" placeholder="Digite o nome" maxlength="60"/>
+            </div>
+            <div class="form-group">
+              <label for="exampleDataList" class="form-label">Nome</label>
+            <input class="form-control" [(ngModel)]="curso.nome" list="datalistOptions" id="nome" name="nome" placeholder="Digite o nome" maxlength="60"/>            
+            </div>
+            <div class="form-group">
+              <label for="exampleDataList" class="form-label">Descrição</label>
+              <input class="form-control" [(ngModel)]="curso.descricao" list="datalistOptions" id="descricao" name="descricao" placeholder="Digite a descrição do curso"/>
+            </div>            
+            <div *ngIf="method!='excluir'; else alternativa">
+              <button class="btn btn-primary" type="submit">Enviar</button>              
+            </div>
+            <ng-template #alternativa>
+              <button class="btn btn-danger" type="button" (click)="excluir()">Excluir</button>
+            </ng-template>
+            <button class="btn btn-secondary" type="button" (click)="voltar()">Voltar</button>          
+          </form>
+    </app-card>
+
+  </div>
+</div>

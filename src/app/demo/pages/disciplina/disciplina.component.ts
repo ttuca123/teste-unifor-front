@@ -2,10 +2,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DisciplinaService } from '../../service/disciplina.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 @Component({
   selector: 'app-disciplina',
-  imports: [],
+  imports: [CommonModule, SharedModule],
   templateUrl: './disciplina.component.html',
   styleUrl: './disciplina.component.scss'
 })
