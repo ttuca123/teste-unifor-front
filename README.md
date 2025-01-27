@@ -6,7 +6,9 @@ Datta Able is a free angular admin dashboard template built with Angular and lat
 
 :star: :star: :star: Do not forget to star (Top right of this page) it if you like the theme :star: :star: :star:
 
-![Dashboard](https://github.com/ttuca123/teste-unifor-front/tree/4-criar-um-readme-detalhado/src/assets/screens/dashboard.png)
+
+![Dashboard](https://raw.githubusercontent.com/ttuca123/teste-unifor-front/4-criar-um-readme-detalhado/src/assets/screens/dashboard.png)
+
 
 
 [Pro version](https://codedthemes.com/item/datta-able-angular/?utm_source=free_demo&utm_medium=codedthemes&utm_campaign=button_download_premium) of Datta Able Angular Dashboard template contains features like TypeScript, Apps, Authentication Methods (i.e. JWT), Advance Components, Form Plugins, Layouts, Widgets, and many more.
