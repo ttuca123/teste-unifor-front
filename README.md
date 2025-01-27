@@ -41,7 +41,7 @@ Antes de começar, você precisa ter os seguintes softwares instalados na sua m�
 
 ```
 git clone https://github.com/ttuca123/teste-unifor-front.git
-cd teste-unifor 
+cd teste-unifor-front 
 ```
 
 2. Instalar os pacotes
