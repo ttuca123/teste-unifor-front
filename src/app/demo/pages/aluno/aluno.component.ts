@@ -40,7 +40,7 @@ export class AlunoComponent implements OnInit, OnDestroy{
 
   buscarTodosAlunos() {     
    
-  this.subscription = this.alunoService.listarTodosAlunos()
+  this.subscription = this.alunoService.listarTodos()
     .subscribe({
       next: (dados) => {
         this.alunos= (dados);

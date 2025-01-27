@@ -12,7 +12,7 @@
 
   a,
   p > a {
-    color: $theme-heading-color;
+    //color: $theme-heading-color;
     font-weight: 600;
   }
 
@@ -125,7 +125,7 @@
     }
   }
 }
-@keyframes floating {
+/*@keyframes floating {
   from {
     transform: rotate(0deg) translate(-10px) rotate(0deg);
   }
@@ -133,5 +133,5 @@
   to {
     transform: rotate(360deg) translate(-10px) rotate(-360deg);
   }
-}
+} */
 /**====== Authentication css end ======**/

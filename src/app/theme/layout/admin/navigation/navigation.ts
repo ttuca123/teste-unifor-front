@@ -23,7 +23,7 @@ export const NavigationItems: NavigationItem[] = [
     children: [
       {
         id: 'dashboard',
-        title: 'Dashboard',
+        title: 'Painel',
         type: 'item',
         url: '/dashboard',
         icon: 'feather icon-home',
@@ -31,7 +31,7 @@ export const NavigationItems: NavigationItem[] = [
       }
     ]
   },
-  {
+  /*{
     id: 'ui-element',
     title: 'UI ELEMENT',
     type: 'group',
@@ -122,14 +122,14 @@ export const NavigationItems: NavigationItem[] = [
         icon: 'feather icon-pie-chart'
       }
     ]
-  },
+  },*/
   {
     id: 'pages',
-    title: 'Pages',
+    title: 'Páginas ',
     type: 'group',
     icon: 'icon-pages',
     children: [
-      {
+     /*{
         id: 'auth',
         title: 'Authentication',
         type: 'collapse',
@@ -152,16 +152,64 @@ export const NavigationItems: NavigationItem[] = [
             breadcrumbs: false
           }
         ]
+      },*/
+      {
+        id: 'usuario-page',
+        title: 'Usuário',
+        type: 'item',
+        url: '/usuarios',
+        classes: 'nav-item',
+        icon: 'feather icon-sidebar'
       },
       {
-        id: 'sample-page',
-        title: 'Alunos',
+        id: 'aluno-page',
+        title: 'Aluno',
         type: 'item',
         url: '/alunos',
         classes: 'nav-item',
         icon: 'feather icon-sidebar'
       },
       {
+        id: 'professor-page',
+        title: 'Professor',
+        type: 'item',
+        url: '/professores',
+        classes: 'nav-item',
+        icon: 'feather icon-sidebar'
+      },
+      {
+        id: 'curso-page',
+        title: 'Curso',
+        type: 'item',
+        url: '/cursos',
+        classes: 'nav-item',
+        icon: 'feather icon-sidebar'
+      },
+      {
+        id: 'disciplina-page',
+        title: 'Disciplina',
+        type: 'item',
+        url: '/disciplinas',
+        classes: 'nav-item',
+        icon: 'feather icon-sidebar'
+      },
+      {
+        id: 'semestre-page',
+        title: 'Semestre',
+        type: 'item',
+        url: '/semestres',
+        classes: 'nav-item',
+        icon: 'feather icon-sidebar'
+      },
+       {
+        id: 'matrizcurricular-page',
+        title: 'Matriz Curricular',
+        type: 'item',
+        url: '/matrizes',
+        classes: 'nav-item',
+        icon: 'feather icon-sidebar'
+      },
+     /* {
         id: 'disabled-menu',
         title: 'Disabled Menu',
         type: 'item',
@@ -179,7 +227,7 @@ export const NavigationItems: NavigationItem[] = [
         url: 'https://codedthemes.com/item/datta-able-angular/',
         target: true,
         external: true
-      }
+      }*/
     ]
   }
 ];
