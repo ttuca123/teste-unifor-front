@@ -1,7 +1,7 @@
 {
   "name": "teste-unifor",
   "version": "1.0.0",
-  "author": "CodedThemes",
+  "author": "Artur Cavalcante",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
