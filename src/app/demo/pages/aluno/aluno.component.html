@@ -1,0 +1,41 @@
+<p>   
+    Lista de Alunos
+</p>
+
+ <div  class="container" > 
+        <button class="btn btn-primary" type="button" style="max-width: 100px; max-height: 50px;" (click)="cadastrar()">Cadastrar</button>   
+        <button class="btn btn-secondary" type="button" style="max-width: 100px; max-height: 50px;" (click)="buscarTodosAlunos()">Buscar</button>   
+        <div class="row justify-content-md-center" >  
+             @for (aluno of alunos; track aluno) {
+                <div class=" col-xl-4" >
+                <app-card>
+                    <h6 class="mb-4">{{ aluno.matricula }} </h6>
+                    <div class="row d-flex align-items-center">
+                    <div class="col-9">
+                        <h3 class="f-w-300 d-flex align-items-center m-b-0">
+                            {{ aluno.nome }}
+                        </h3>
+                    </div>                    
+                    </div>
+                    <div class="m-t-30">     
+                        <button  class="btn btn-secondary"   (click)="detalhar(aluno)" >
+                            detalhar
+                        </button>
+                         <button  class="btn btn-danger"   (click)="excluir(aluno)" >
+                            excluir
+                        </button>
+                    </div>
+                </app-card>
+                </div>
+            } @empty {
+
+                <div class="col-9">
+                    <app-card>
+                        <h5 class="f-w-300 d-flex align-items-center m-b-0">
+                            Sem Alunos Cadastrados
+                        </h5>
+                    </app-card>   
+                </div>    
+            }
+        </div>             
+      </div>     

@@ -1,0 +1,41 @@
+<p>   
+    Lista de Cursos
+</p>
+
+ <div  class="container" > 
+        <button class="btn btn-primary" type="button" style="max-width: 100px; max-height: 50px;" (click)="cadastrar()">Cadastrar</button>   
+        <button class="btn btn-secondary" type="button" style="max-width: 100px; max-height: 50px;" (click)="buscarTodos()">Buscar</button>   
+        <div class="row justify-content-md-center" >  
+             @for (curso of cursos; track curso) {
+                <div class=" col-xl-4" >
+                <app-card>
+                    <h6 class="mb-4">{{ curso.matricula }} </h6>
+                    <div class="row d-flex align-items-center">
+                    <div class="col-9">
+                        <h3 class="f-w-300 d-flex align-items-center m-b-0">
+                            {{ curso.nome }}
+                        </h3>
+                    </div>                    
+                    </div>
+                    <div class="m-t-30">     
+                        <button  class="btn btn-secondary"   (click)="detalhar(curso)" >
+                            detalhar
+                        </button>
+                         <button  class="btn btn-danger"   (click)="excluir(curso)" >
+                            excluir
+                        </button>
+                    </div>
+                </app-card>
+                </div>
+            } @empty {
+
+                <div class="col-9">
+                    <app-card>
+                        <h5 class="f-w-300 d-flex align-items-center m-b-0">
+                            Sem cursos Cadastrados
+                        </h5>
+                    </app-card>   
+                </div>    
+            }
+        </div>             
+      </div>     
