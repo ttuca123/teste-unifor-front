@@ -41,16 +41,16 @@ export class ProfessorComponent implements OnInit, OnDestroy{
 
   buscarTodos() {     
    
-  this.subscription = this.professorService.listarTodos()
-    .subscribe({
-      next: (dados) => {
-        this.professores= (dados);
+    this.subscription = this.professorService.listarTodos()
+      .subscribe({
+        next: (dados) => {
+          this.professores= (dados);
 
-      },
-       error: (err) => {
-        console.error(err);        
-      }
-    }); 
+        },
+        error: (err) => {
+          console.error(err);        
+        }
+      }); 
   }  
 
 

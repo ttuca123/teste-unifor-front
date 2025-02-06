@@ -2,17 +2,18 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UsuarioService } from '../../service/usuario.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 @Component({
   selector: 'app-usuario',
-  imports: [],
+  imports: [SharedModule],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.scss'
 })
 export class UsuarioComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
-  cursos:any[] = [];
+  usuarios:any[] = [];
 
   constructor(private usuarioService: UsuarioService,  public route: Router){
     
@@ -25,24 +26,23 @@ export class UsuarioComponent implements OnInit, OnDestroy {
 
   
 
-  detalhar(aluno) {
-    this.route.navigate([`/usuarios/cadastro/${aluno.matricula}`]);
+  detalhar(usuario) {
+    this.route.navigate([`/usuarios/cadastro/${usuario.id}`]);
   }
 
-  excluir(aluno) {
-    this.route.navigate([`/usuarios/cadastro/${aluno.matricula}`, {
+  excluir(usuario) {
+    this.route.navigate([`/usuarios/cadastro/${usuario.id}`, {
       method: 'excluir'
     }]);
   }
 
-
-  //Busca todos os cursos
+  
   buscarTodos() {     
    
   this.subscription = this.usuarioService.listarTodos()
     .subscribe({
       next: (dados) => {
-        this.cursos= (dados);
+        this.usuarios= (dados);
 
       },
        error: (err) => {
@@ -54,7 +54,7 @@ export class UsuarioComponent implements OnInit, OnDestroy {
 
   cadastrar() {
 
-     this.route.navigate(["/disciplinas/cadastro"]);
+     this.route.navigate(["/usuarios/cadastro"]);
   }
 
   ngOnDestroy(): void {
