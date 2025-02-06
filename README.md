@@ -55,6 +55,22 @@ npm install
 ```
 npm run start
 ```
+## Como rodar com docker
+1. Clone from Github
+
+```
+git clone https://github.com/ttuca123/teste-unifor-front.git
+cd teste-unifor-front 
+```
+2. Construir a imagem docker
+```
+docker build -t uniforfront:v1.0.0 .
+```
+3. Rodar a imagem docker
+```
+ docker run -p 80:80 uniforfront:v1.0.0
+```
+
 📦 Estrutura do Projeto:
 - src/app/config/: Contém o código fonte de configuração e outros recursos.
 - src/demo/pages: Contém arquivos relacionados ás páginas do sistema.
