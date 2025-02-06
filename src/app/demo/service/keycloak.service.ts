@@ -1,46 +1,42 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as Keycloak from 'keycloak-js';
 import { Observable } from 'rxjs';
+import { STORAGE_KEYS } from 'src/app/config/storage_keys.config';
+import { LocalUser } from '../vo/local-user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class KeycloakService {
+    
   private keycloakAuth: any;
 
-  constructor() { 
-       
-    /*this.keycloakAuth = Keycloak({
-        url: 'https://localhost:8180/auth',
-        realm: 'master',
-        clientId: 'unifor123',       
-    }); */
+  endpoint = 'http://localhost:8180';
+
+  constructor(private http: HttpClient) { }
+
+  public logar(vo):Observable<any>{
+
+    return this.http.post(`${this.endpoint}/v1/auth/login`, vo);
   }
 
-  init() {
-    return new Promise((resolve, reject) => {
-      this.keycloakAuth.init({ onLoad: 'login-required' }).then(
-        () => {
-          resolve( () => {
-            console.log('autenticado');
-          });
-        },
-        (error) => {
-          reject(error);
-        }
-      );
-    });
+  public gravarDadosToken(dadosUsuario){
+
+    localStorage.setItem(STORAGE_KEYS.localUser, JSON.stringify(dadosUsuario));    
+
   }
 
-  login(): Observable<any> {
-   return  this.keycloakAuth.login();
+   verificarUsuarioLogado(): boolean {
+
+    return this.getLocalUser() != null;
   }
 
-  logout() {
-    this.keycloakAuth.logout();
-  }
+  getLocalUser(): LocalUser {
 
-  getToken() {
-    return this.keycloakAuth.token;
+      const usr = localStorage.getItem(STORAGE_KEYS.localUser);
+
+      return usr != null ? JSON.parse(usr) : null;
   }
+  
 }
