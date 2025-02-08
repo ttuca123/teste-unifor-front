@@ -2,19 +2,23 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { GuestComponent } from './theme/layout/guest/guest.component';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
 import AuthSigninComponent from './demo/pages/authentication/auth-signin/auth-signin.component';
 import { AuthGuardService } from './demo/service/auth-guard.service';
+import { AuthIntercaptorProvider, AuthInterceptor } from './config/auth-interceptor';
+import { authInterceptor, loggingInterceptor } from './app-config';
 
 const routes: Routes = [  
   {
     path: '',
     component: AdminComponent,    
+    canActivate: [AuthGuardService],          
     children: [    
       {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full'
+        
       },
       {
         path: 'dashboard',
@@ -78,6 +82,9 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [provideHttpClient()]
+  providers: [ provideHttpClient(
+        withInterceptors([loggingInterceptor, authInterceptor]),        
+      ),   
+    ]
 })
 export class AppRoutingModule {}

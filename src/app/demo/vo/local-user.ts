@@ -2,10 +2,8 @@ export interface LocalUser {
     id: null;
     token: string;
     authToken: string;    
-    nome: string;    
-    fone: string;
-    cpf: string;    
-    email: string;    
+    nome: string;            
+    user: string;    
     perfil: any;
     permissoes: any;    
 }

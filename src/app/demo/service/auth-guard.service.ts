@@ -16,7 +16,10 @@ export class AuthGuardService implements CanActivate{
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     
     if(!this.storage.getLocalUser()) {
-     
+      console.log(JSON.stringify(this.storage.getLocalUser()));
+      console.log('redirect');
+      //{"user":"aluno@gmail.com","pass":"aluno"}
+      //console.log(state);
       this.router.navigate(['/auth/login', {state: {redirect: state}}]);
     }
     

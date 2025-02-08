@@ -26,16 +26,20 @@ export default class AuthSigninComponent {
     this.keycloakService.logar(this.auth)
     .subscribe({
       next: (token) => {
-        alert(`login realizado com sucesso ${token.access_token}`);
+        
         let dadosUsuario = {
           user : this.auth.user,
-          pass : this.auth.password,
+          authToken: token.access_token
+          
         }
         this.keycloakService.gravarDadosToken(dadosUsuario); 
         this.route.navigate(['/dashboard']);
       }
         ,
-      error: () => console.error()
+      error: (err) => {
+      //  alert(`Ops, ocorreu o seguinte erro: ${JSON.stringify(err)}`);
+      console.error(err);
+      }
     })
   }
 
